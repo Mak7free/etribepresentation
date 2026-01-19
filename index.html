@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etribes Ecosystem Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            /* Indigoid Blue - Professional */
+            --bg-color: #fdfbf7;
+            /* Cream/Off-White */
+            --text-main: #1e293b;
+            /* Dark Slate */
+            --text-sub: #64748b;
+            /* Muted Slate */
+            --card-bg: #ffffff;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            padding: 60px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1.5px;
+            color: var(--text-main);
+        }
+
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 30px;
+            animation: fadeInDown 0.8s ease-out forwards;
+        }
+
+        .header-logos img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        .header-logos img:hover {
+            transform: scale(1.05);
+        }
+
+        p.subtitle {
+            font-size: 1.25rem;
+            color: var(--text-sub);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Hero Image/Mockup */
+        .hero-mockup {
+            width: 100%;
+            height: 350px;
+            background: url('assets/dashboard_preview.png') center top/cover no-repeat;
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            opacity: 0;
+            margin-bottom: -100px;
+            z-index: 0;
+            animation: zoomIn 1s ease-out forwards 0.2s;
+        }
+
+        /* Module Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            z-index: 1;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 40px 30px;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            opacity: 0;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-sub);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #f1f5f9;
+            color: #475569;
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Delays */
+        .card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .card:nth-child(5) {
+            animation-delay: 0.7s;
+        }
+
+        .card:nth-child(6) {
+            animation-delay: 0.8s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <div class="header-logos">
+                <img src="assets/logos/etribes_logo.png" alt="Etribes Logo">
+                <img src="assets/logos/30days_logo.png" alt="30 Days Logo">
+            </div>
+            <h1>Etribes Ecosystem</h1>
+            <p class="subtitle">A unified platform empowering communities through connected tools for networking,
+                business, careers, and governance.</p>
+        </header>
+
+        <div class="hero-mockup"></div>
+
+        <div class="grid">
+
+            <!-- 01 -->
+            <div class="card" onclick="window.location.href='module_networking.html'">
+                <h2>Networking & Social</h2>
+                <p>Digital visiting cards, P2P messaging, and community timelines.</p>
+                <div class="tags"><span class="tag">01</span><span class="tag">Connect</span></div>
+            </div>
+
+            <!-- 02 -->
+            <div class="card" onclick="window.location.href='module_business.html'">
+                <h2>Business Growth</h2>
+                <p>CRM, lead management, product catalogs, and analytics.</p>
+                <div class="tags"><span class="tag">02</span><span class="tag">Grow</span></div>
+            </div>
+
+            <!-- 03 -->
+            <div class="card" onclick="window.location.href='module_careers.html'">
+                <h2>Careers & HR</h2>
+                <p>Job portal, applicant tracking, and resume database.</p>
+                <div class="tags"><span class="tag">03</span><span class="tag">Hire</span></div>
+            </div>
+
+            <!-- 04 -->
+            <div class="card" onclick="window.location.href='module_events.html'">
+                <h2>Events & Media</h2>
+                <p>Event scheduling, newsletters, and digital certifications.</p>
+                <div class="tags"><span class="tag">04</span><span class="tag">Engage</span></div>
+            </div>
+
+            <!-- 05 -->
+            <div class="card" onclick="window.location.href='module_admin.html'">
+                <h2>Admin & RBAC</h2>
+                <p>Governance, permission management, and system health.</p>
+                <div class="tags"><span class="tag">05</span><span class="tag">Control</span></div>
+            </div>
+
+            <!-- 06 -->
+            <div class="card" onclick="window.location.href='module_finance.html'">
+                <h2>Finance</h2>
+                <p>Payments, subscriptions, and automated revenue tracking.</p>
+                <div class="tags"><span class="tag">06</span><span class="tag">Monetize</span></div>
+            </div>
+
+            <!-- 07 -->
+            <div class="card" onclick="window.location.href='module_marketplace.html'">
+                <h2>Marketplace</h2>
+                <p>Product listings, trade enquiries, and B2B matching.</p>
+                <div class="tags"><span class="tag">07</span><span class="tag">Trade</span></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
